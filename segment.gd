@@ -24,7 +24,7 @@ func _fixed_process(delta):
 	if get_child_count() == 0:
 		queue_free()
 	for child in get_children():
-		child.move(Vector2(-5*(1 + total_time/60),0))
+		child.move(Vector2(-5*(1 + total_time/30),0))
 		if child.get_global_pos().x < (-2 * tile_size):
 			child.queue_free()
 	
