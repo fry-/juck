@@ -14,8 +14,8 @@ func _ready():
 	
 	randomize()
 	var pick_color = randi()%2
-	make_obstacle(init_pos_y,pick_color,1)
-	make_obstacle(-init_pos_y,(pick_color+1)%2,2)
+	make_obstacle(init_pos_y,pick_color)
+	make_obstacle(-init_pos_y,(pick_color+1)%2)
 	
 	set_fixed_process(true)
 	pass
@@ -30,10 +30,17 @@ func _fixed_process(delta):
 	
 	pass
 
-func make_obstacle(pos_y,color_id,layer):
+func make_obstacle(pos_y,color_id):
 	add_child(obstacle.instance())
 	var num = get_child_count()-1
 	get_child(num).set_pos(Vector2(0,pos_y))
+	if pos_y > 0:
+		get_child(num).set_scale(Vector2(1,-get_child(num).get_scale().y))
 	get_child(num).get_child(1).set_modulate(colors[color_id])
+	var layer
+	if color_id == 0:
+		layer = 1
+	else:
+		layer = 2
 	get_child(num).set_layer_mask(layer)
 	pass
