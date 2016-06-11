@@ -1,0 +1,120 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://triangle.png" type="Texture" id=1]
+
+[node name="player" type="KinematicBody2D"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="modulate" type="CanvasModulate" parent="."]
+
+color = Color( 1, 1, 1, 1 )
+
+[node name="body" type="Sprite" parent="modulate"]
+
+texture = ExtResource( 1 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="head" type="Sprite" parent="modulate/body"]
+
+transform/pos = Vector2( 0, -32 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="head_bone" type="Position2D" parent="modulate/body/head"]
+
+transform/pos = Vector2( -1.90735e-06, -64 )
+transform/scale = Vector2( 3.2, 3.2 )
+__meta__ = { "_edit_bone_":true }
+
+[node name="arm_r" type="Sprite" parent="modulate/body"]
+
+visibility/behind_parent = true
+transform/pos = Vector2( 24, -32 )
+transform/scale = Vector2( 0.25, 0.75 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 32 )
+
+[node name="hand_r" type="Sprite" parent="modulate/body/arm_r"]
+
+transform/pos = Vector2( -3.8147e-06, 64 )
+transform/scale = Vector2( 1, 0.666667 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 32 )
+__meta__ = { "_edit_bone_":true, "_edit_ik_":true }
+
+[node name="handend_r" type="Position2D" parent="modulate/body/arm_r/hand_r"]
+
+transform/pos = Vector2( 1.52588e-05, 64 )
+transform/scale = Vector2( 3.2, 3.2 )
+__meta__ = { "_edit_bone_":true }
+
+[node name="arm_l" type="Sprite" parent="modulate/body"]
+
+transform/pos = Vector2( -24, -32 )
+transform/scale = Vector2( 0.25, 0.75 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 32 )
+
+[node name="hand_l" type="Sprite" parent="modulate/body/arm_l"]
+
+transform/pos = Vector2( -3.8147e-06, 64 )
+transform/scale = Vector2( 1, 0.666667 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 32 )
+__meta__ = { "_edit_bone_":true, "_edit_ik_":true }
+
+[node name="handend_l" type="Position2D" parent="modulate/body/arm_l/hand_l"]
+
+transform/pos = Vector2( 0, 64 )
+transform/scale = Vector2( 3.2, 3.2 )
+__meta__ = { "_edit_bone_":true }
+
+[node name="leg_r" type="Sprite" parent="modulate/body"]
+
+transform/pos = Vector2( 8, 32 )
+transform/scale = Vector2( 0.25, 0.75 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 32 )
+
+[node name="foot_r" type="Sprite" parent="modulate/body/leg_r"]
+
+transform/pos = Vector2( 3.8147e-06, 64 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 32 )
+__meta__ = { "_edit_bone_":true, "_edit_ik_":true }
+
+[node name="footend_r" type="Position2D" parent="modulate/body/leg_r/foot_r"]
+
+transform/pos = Vector2( 2.28882e-06, 64 )
+transform/scale = Vector2( 3.2, 2.13333 )
+__meta__ = { "_edit_bone_":true }
+
+[node name="leg_l" type="Sprite" parent="modulate/body"]
+
+transform/pos = Vector2( -8, 32 )
+transform/scale = Vector2( 0.25, 0.75 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 32 )
+
+[node name="foot_l" type="Sprite" parent="modulate/body/leg_l"]
+
+transform/pos = Vector2( 3.8147e-06, 64 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 32 )
+__meta__ = { "_edit_bone_":true, "_edit_ik_":true }
+
+[node name="footend_l" type="Position2D" parent="modulate/body/leg_l/foot_l"]
+
+transform/pos = Vector2( 2.28882e-06, 64 )
+transform/scale = Vector2( 3.2, 2.13333 )
+__meta__ = { "_edit_bone_":true }
+
+
