@@ -2,8 +2,12 @@
 
 [ext_resource path="res://segment.gd" type="Script" id=1]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="KinematicBody2D"]
 
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
 script/script = ExtResource( 1 )
 
 

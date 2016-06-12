@@ -10,7 +10,9 @@ var new_segment
 var rand_time
 var time = 0
 var total_time = 0
+var game_speed = 1
 var frequency = 0.5 #with smaller frequency, obstacles occurence and jump/duck speed rises
+var frequency_gap
 
 var obstacle
 
@@ -25,10 +27,17 @@ func _ready():
 	pass
 
 func _fixed_process(delta):
+	if game_speed < 1:
+		game_speed = 1 + total_time/60
+	OS.set_time_scale(game_speed)
 	total_time += delta
 	time += delta
 	var fire_time = total_time / 20
-	if time - 1 + frequency > (rand_time/fire_time):
+	if fire_time < rand_time:
+		frequency_gap = rand_time/fire_time
+	else:
+		frequency_gap = pow(rand_time,2)
+	if time - 1 + frequency > (frequency_gap):
 		time = 0
 		rand_time = randf()
 		add_segment()
