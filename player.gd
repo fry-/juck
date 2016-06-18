@@ -33,7 +33,7 @@ func _fixed_process(delta):
 			anim_node.set_speed(1)
 	
 	if is_colliding():
-		print("collision")
+		print("player collision")
 
 func change_color(node):
 	for child in node.get_children():
@@ -41,4 +41,4 @@ func change_color(node):
 		if child.get_child_count() > 0 and child.get_type() == "Sprite":
 			change_color(child)
 			child.set_modulate(global.colors[current_color])
-	#set_collision_mask(global.layer[current_color]) # set the mask for collision
+	set_collision_mask(global.layer[current_color]) # set the mask for collision

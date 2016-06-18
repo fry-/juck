@@ -552,11 +552,12 @@ tracks/29/keys = { "cont":true, "times":FloatArray( 0 ), "transitions":FloatArra
 
 [node name="player" type="KinematicBody2D"]
 
+z/relative = false
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, -2.98023e-08, 1, -9.53674e-06, 32 )
 shapes/0/trigger = false
-collision/layers = 1
+collision/layers = 524288
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
@@ -699,7 +700,6 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( -9.53674e-06, 32 )
 transform/rot = -1.70755e-06
-transform/scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

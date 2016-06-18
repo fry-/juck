@@ -16,17 +16,6 @@ func _ready():
 	make_obstacle(init_pos_y+32,make_id)
 	make_obstacle(-init_pos_y,(make_id+1)%2)
 	
-	set_fixed_process(true)
-	pass
-
-func _fixed_process(delta):
-	if get_global_pos().x < (-5 * tile_size):
-		queue_free()
-		print("free segment!")
-	move(Vector2(-1,0) * MOTION_SPEED * delta)
-	
-	pass
-
 func make_obstacle(pos_y,vector_id):
 	add_child(obstacle.instance())
 	var num = get_child_count()-1
@@ -34,5 +23,5 @@ func make_obstacle(pos_y,vector_id):
 	if pos_y > 0:
 		get_child(num).set_scale(Vector2(1,-0.5*get_child(num).get_scale().y))
 	get_child(num).get_child(1).set_modulate(global.colors[vector_id])
-	#get_child(num).set_layer_mask(global.layer[vector_id]) # set obstacles layer for collision
+	get_child(num).set_layer_mask(global.layer[vector_id]) # set obstacles layer for collision
 	pass
