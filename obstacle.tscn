@@ -3,28 +3,31 @@
 [ext_resource path="res://obstacle.gd" type="Script" id=1]
 [ext_resource path="res://triangle.png" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="SegmentShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
+a = Vector2( -2.38419e-07, -10.75 )
+b = Vector2( -2.38419e-07, 10.25 )
 
 [node name="obstacle" type="KinematicBody2D"]
 
 transform/scale = Vector2( 1, 2 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( -2.74437, 2.3992e-07, -2.66431e-07, -3.04762, 0, -7.61905 )
+shapes/0/transform = Matrix32( 10.6667, -0, 0, 3.04762, 0, 0.761908 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
+one_way_collision/direction = Vector2( -1, 0 )
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0, -7.61905 )
-transform/rot = -180.0
-transform/scale = Vector2( 2.74437, 3.04762 )
+transform/pos = Vector2( 0, 0.761908 )
+transform/scale = Vector2( 10.6667, 3.04762 )
+z/z = 1
+z/relative = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
