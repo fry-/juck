@@ -142,7 +142,7 @@ tracks/30/keys = { "cont":true, "times":FloatArray( 0, 0.5, 1 ), "transitions":F
 tracks/31/type = "value"
 tracks/31/path = NodePath("collision:transform/pos")
 tracks/31/interp = 1
-tracks/31/keys = { "cont":true, "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ Vector2( 0, 32 ), Vector2( 0, 128 ), Vector2( 0, 32 ) ] }
+tracks/31/keys = { "cont":false, "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 0, 128 ), Vector2( 0, 32 ) ] }
 tracks/32/type = "value"
 tracks/32/path = NodePath("collision:transform/rot")
 tracks/32/interp = 1
@@ -280,7 +280,7 @@ tracks/30/keys = { "cont":true, "times":FloatArray( 0, 0.5, 1 ), "transitions":F
 tracks/31/type = "value"
 tracks/31/path = NodePath("collision:transform/pos")
 tracks/31/interp = 1
-tracks/31/keys = { "cont":true, "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ Vector2( 0, 32 ), Vector2( 0, -96 ), Vector2( 0, 32 ) ] }
+tracks/31/keys = { "cont":false, "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 0, -96 ), Vector2( 0, 32 ) ] }
 tracks/32/type = "value"
 tracks/32/path = NodePath("collision:transform/rot")
 tracks/32/interp = 1
@@ -558,7 +558,7 @@ shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 32 )
 shapes/0/trigger = false
 collision/layers = 524288
-collision/mask = 1
+collision/mask = 0
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
@@ -566,7 +566,6 @@ script/script = ExtResource( 1 )
 
 visibility/light_mask = 524288
 transform/pos = Vector2( 0, 5 )
-transform/rot = 2.54327
 z/relative = false
 texture = ExtResource( 2 )
 
@@ -574,7 +573,6 @@ texture = ExtResource( 2 )
 
 visibility/light_mask = 524288
 transform/pos = Vector2( 0, -32 )
-transform/rot = -15.7452
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -32 )
@@ -592,7 +590,7 @@ __meta__ = { "_edit_bone_":true }
 visibility/behind_parent = true
 visibility/light_mask = 524288
 transform/pos = Vector2( 24, -32 )
-transform/rot = 11.1228
+transform/rot = 26.7107
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -8, 0 )
@@ -601,8 +599,8 @@ __meta__ = { "_edit_ik_":true }
 [node name="hand_r" type="Sprite" parent="body/arm_r"]
 
 visibility/light_mask = 524288
-transform/pos = Vector2( 1.06812e-05, 48 )
-transform/rot = 56.5717
+transform/pos = Vector2( 2.67029e-05, 48 )
+transform/rot = -10.7413
 transform/scale = Vector2( 0.25, 0.5 )
 z/relative = false
 texture = ExtResource( 2 )
@@ -619,7 +617,7 @@ __meta__ = { "_edit_bone_":true }
 
 visibility/light_mask = 524288
 transform/pos = Vector2( -24, -32 )
-transform/rot = -16.8097
+transform/rot = -18.2246
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -8, 0 )
@@ -628,8 +626,8 @@ __meta__ = { "_edit_ik_":true }
 [node name="hand_l" type="Sprite" parent="body/arm_l"]
 
 visibility/light_mask = 524288
-transform/pos = Vector2( 1.297e-05, 48 )
-transform/rot = 33.3176
+transform/pos = Vector2( 7.62939e-06, 48.0002 )
+transform/rot = 49.7782
 transform/scale = Vector2( 0.25, 0.5 )
 z/relative = false
 texture = ExtResource( 2 )
@@ -647,7 +645,7 @@ __meta__ = { "_edit_bone_":true }
 visibility/behind_parent = true
 visibility/light_mask = 524288
 transform/pos = Vector2( 8, 32 )
-transform/rot = 25.9968
+transform/rot = 43.0541
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -8, 0 )
@@ -656,8 +654,8 @@ __meta__ = { "_edit_ik_":true, "_editor_collapsed":true }
 [node name="foot_r" type="Sprite" parent="body/leg_r"]
 
 visibility/light_mask = 524288
-transform/pos = Vector2( 3.35693e-05, 48 )
-transform/rot = -29.8365
+transform/pos = Vector2( -3.62396e-05, 48.0002 )
+transform/rot = -28.6981
 transform/scale = Vector2( 0.25, 0.75 )
 z/relative = false
 texture = ExtResource( 2 )
@@ -675,7 +673,7 @@ __meta__ = { "_edit_bone_":true }
 visibility/behind_parent = true
 visibility/light_mask = 524288
 transform/pos = Vector2( -8, 32 )
-transform/rot = 0.669396
+transform/rot = -28.1531
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -8, 0 )
@@ -684,8 +682,8 @@ __meta__ = { "_edit_ik_":true }
 [node name="foot_l" type="Sprite" parent="body/leg_l"]
 
 visibility/light_mask = 524288
-transform/pos = Vector2( 1.41144e-05, 48 )
-transform/rot = -42.7113
+transform/pos = Vector2( -4.76837e-05, 48.0001 )
+transform/rot = -10.4567
 transform/scale = Vector2( 0.25, 0.75 )
 z/relative = false
 texture = ExtResource( 2 )
@@ -722,8 +720,9 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = "run"
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="floor" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0, 160 )
 texture = ExtResource( 2 )
 __meta__ = { "_edit_lock_":true }

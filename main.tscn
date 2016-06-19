@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://juck.ogg" type="AudioStream" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="main" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
@@ -11,5 +12,16 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 96, 160 )
 collision/margin = 0.08
+
+[node name="audio" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 3 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 
