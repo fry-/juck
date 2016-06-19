@@ -5,8 +5,12 @@ var init_pos_x
 var init_pos_y
 var offset
 var tile_size = 64
+
 var segment = preload("res://segment.tscn")
+var color_changer = preload("res://color_changer.tscn")
 var new_segment
+var segment_counter = 0
+
 var rand_time
 var time = 0
 var total_time = 0
@@ -27,8 +31,8 @@ func _ready():
 	pass
 
 func _fixed_process(delta):
-	if game_speed < 1:
-		game_speed = 1 + total_time/60
+	if game_speed < 2:
+		game_speed = 1 + total_time/180
 	OS.set_time_scale(game_speed)
 	total_time += delta
 	time += delta
@@ -40,10 +44,17 @@ func _fixed_process(delta):
 	if time - 1 + frequency > (frequency_gap):
 		time = 0
 		rand_time = randf()
-		add_segment()
+		if segment_counter > 10 and rand_time < 0.1:
+			segment_counter = 0
+			new_segment = color_changer.instance()
+			add_child(new_segment)
+			get_child(get_child_count()-1).set_pos(Vector2(init_pos_x,get_viewport_rect().size.y/4))
+		else:
+			add_segment()
 	pass
 	
 func add_segment():
+	segment_counter += 1
 	new_segment = segment.instance()
 	add_child(new_segment)
 	get_child(get_child_count()-1).set_pos(Vector2(init_pos_x,get_viewport_rect().size.y/2 - offset))

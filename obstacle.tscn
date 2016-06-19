@@ -7,7 +7,7 @@
 
 custom_solver_bias = 0.0
 a = Vector2( -2.38419e-07, -10.75 )
-b = Vector2( -2.38419e-07, 10.25 )
+b = Vector2( 0, 10.25 )
 
 [node name="obstacle" type="KinematicBody2D"]
 

@@ -7,6 +7,7 @@ var anim_node
 var current_anim
 var frequency
 var current_color
+var color_changing = false
 
 func _ready():
 	randomize()
@@ -22,18 +23,20 @@ func _fixed_process(delta):
 	current_anim = anim_node.get_current_animation()
 	frequency = 1/get_parent().frequency
 	
-	if current_anim == "run":
-		if jump_button:
-			anim_node.set_current_animation("jump")
-			anim_node.set_speed(frequency)
-		elif duck_button:
-			anim_node.set_current_animation("duck")
-			anim_node.set_speed(frequency)
-		else:
-			anim_node.set_speed(1)
+	#if current_anim == "run":
+	if jump_button and current_anim == "run":
+		anim_node.set_current_animation("jump")
+		anim_node.set_speed(frequency*1.1)
+	elif duck_button and current_anim == "run":
+		anim_node.set_current_animation("duck")
+		anim_node.set_speed(frequency*1.1)
+	elif current_anim == "run":
+		anim_node.set_speed(1)
 	
-	if is_colliding():
-		print("player collision")
+	if color_changing == true:
+		color_changing = false
+		current_color = (current_color+1)%2
+		change_color(self)
 
 func change_color(node):
 	for child in node.get_children():
