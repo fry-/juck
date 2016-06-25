@@ -79,3 +79,7 @@ func _on_timer_timeout():
 	if lifes > 0:
 		seconds += 1
 		get_node("hud/seconds").set_text(str(seconds))
+
+
+func _on_main_menu_pressed():
+	get_tree().change_scene("res://scenes/main_menu.tscn")
