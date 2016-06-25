@@ -59,7 +59,7 @@ func life_remove():
 	if lifes > 0:
 		lifes -= 1
 	else:
-		get_node("player").queue_free()
+		get_node("player").set_pos(Vector2(0,-500))
 		get_node("game_over").start()
 	
 	get_node("hud/lifes").set_text(str(lifes))
