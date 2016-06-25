@@ -7,5 +7,3 @@ const MOTION_SPEED = 400
 
 func _ready():
 	pass
-
-

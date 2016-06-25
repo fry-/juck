@@ -1,17 +1,11 @@
 
 extends Node2D
 
-var init_pos_x
-var init_pos_y
-var offset
-var tile_size = 64
-
 var segment = preload("res://scenes/segment.tscn")
 var color_changer = preload("res://scenes/color_changer.tscn")
 var new_segment
 var segment_counter = 0
 
-var rand_time
 var time = 0
 var total_time = 0
 var game_speed = 1
@@ -20,15 +14,16 @@ var frequency_gap
 
 var obstacle
 
+const tile_size = 64
+onready var rand_time = randf()
+onready var offset = get_viewport_rect().size.y / 4
+onready var init_pos_x = get_viewport_rect().size.x + (2 * tile_size)
+onready var init_pos_y = (get_viewport_rect().size.y / 2) - tile_size - offset
+
+
 func _ready():
-	offset = get_viewport_rect().size.y / 4
-	init_pos_x = get_viewport_rect().size.x + (2 * tile_size)
-	init_pos_y = (get_viewport_rect().size.y / 2) - tile_size - offset
 	add_segment()
-	
-	rand_time = randf()
 	set_fixed_process(true)
-	pass
 
 func _fixed_process(delta):
 	if game_speed < 2:
@@ -51,7 +46,6 @@ func _fixed_process(delta):
 			get_child(get_child_count()-1).set_pos(Vector2(init_pos_x,get_viewport_rect().size.y/4))
 		else:
 			add_segment()
-	pass
 	
 func add_segment():
 	segment_counter += 1

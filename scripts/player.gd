@@ -6,17 +6,16 @@ var duck_button
 var anim_node
 var current_anim
 var frequency
-var current_color
 var color_changing = false
 var colliding = false
 var current_time = -2
 
+onready var current_color = randi()%2
+
 func _ready():
 	randomize()
-	current_color = randi()%2
 	change_color(self)
 	set_fixed_process(true)
-	pass
 
 func _fixed_process(delta):
 	jump_button = Input.is_action_pressed("jump")
