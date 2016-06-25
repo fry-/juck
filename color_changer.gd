@@ -13,4 +13,4 @@ func _fixed_process(delta):
 	if is_colliding():
 		queue_free()
 		player.color_changing = true
-	pass # replace with function body
+	pass

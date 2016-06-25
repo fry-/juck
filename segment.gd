@@ -24,5 +24,4 @@ func make_obstacle(pos_y,vector_id):
 		get_child(num).set_scale(Vector2(1,-0.5*get_child(num).get_scale().y))
 	get_child(num).get_child(1).set_modulate(global.colors[vector_id])
 	get_child(num).set_layer_mask(global.layer[vector_id]) # set obstacles layer for collision
-	print("new child: ",get_child(num).get_layer_mask())
 	pass
