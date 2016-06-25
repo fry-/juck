@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://audio/music/juck.ogg" type="AudioStream" id=3]
+[ext_resource path="res://fonts/fira_sans_regular.fnt" type="BitmapFont" id=4]
 
 [node name="main" type="Node2D"]
 
 script/script = ExtResource( 1 )
+lifes = 3
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 
@@ -22,5 +24,38 @@ stream/autoplay = true
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
+
+[node name="hud" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="lifes" type="Label" parent="hud"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 85.0
+margin/bottom = 36.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="game_over" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="game_over" to="." method="_on_game_over_timeout"]
 
 

@@ -44,6 +44,7 @@ func _fixed_process(delta):
 		set_opacity(0.5)
 		set_one_way_collision_direction(Vector2(-1,0))
 		set_collision_mask(3)
+		get_node("/root/main").life_remove()
 	elif (get_one_way_collision_direction() == Vector2(-1,0)) and ((current_time + 0.4) < get_parent().total_time):
 		set_one_way_collision_direction(Vector2(0,0))
 	elif (current_time > 0) and ((current_time + 1) < get_parent().total_time):
