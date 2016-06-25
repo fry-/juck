@@ -11,6 +11,7 @@ var total_time = 0
 var game_speed = 1
 var frequency = 0.5 #with smaller frequency, obstacles occurence and jump/duck speed rises
 var frequency_gap
+var seconds = 0
 
 export var lifes = 3
 
@@ -72,3 +73,9 @@ func _on_game_over_timeout():
 func _on_life_add_timeout():
 	lifes += 1
 	get_node("hud/lifes").set_text(str(lifes))
+
+
+func _on_timer_timeout():
+	if lifes > 0:
+		seconds += 1
+		get_node("hud/seconds").set_text(str(seconds))

@@ -37,10 +37,27 @@ scale = Vector2( 1, 1 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 85.0
-margin/bottom = 36.0
+margin/left = 22.0
+margin/top = 414.0
+margin/right = 107.0
+margin/bottom = 450.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="seconds" type="Label" parent="hud"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+margin/left = 135.0
+margin/top = 414.0
+margin/right = 220.0
+margin/bottom = 450.0
 custom_fonts/font = ExtResource( 4 )
 text = "0"
 align = 1
@@ -63,8 +80,17 @@ wait_time = 30.0
 one_shot = false
 autostart = true
 
+[node name="timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
 [connection signal="timeout" from="game_over" to="." method="_on_game_over_timeout"]
 
 [connection signal="timeout" from="life_add" to="." method="_on_life_add_timeout"]
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 
 
