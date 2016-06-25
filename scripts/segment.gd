@@ -3,7 +3,7 @@ extends Node2D
 
 var init_pos_y
 var tile_size
-var obstacle = preload("res://obstacle.tscn")
+var obstacle = preload("res://scenes/obstacle.tscn")
 var colors = [Color(1,0,0), Color(0,0,1)]
 const MOTION_SPEED = 400
 

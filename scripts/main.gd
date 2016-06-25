@@ -6,8 +6,8 @@ var init_pos_y
 var offset
 var tile_size = 64
 
-var segment = preload("res://segment.tscn")
-var color_changer = preload("res://color_changer.tscn")
+var segment = preload("res://scenes/segment.tscn")
+var color_changer = preload("res://scenes/color_changer.tscn")
 var new_segment
 var segment_counter = 0
 

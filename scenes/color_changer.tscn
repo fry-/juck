@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://color_changer.gd" type="Script" id=1]
-[ext_resource path="res://triangle.png" type="Texture" id=2]
+[ext_resource path="res://scripts/color_changer.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="SegmentShape2D" id=1]
 
