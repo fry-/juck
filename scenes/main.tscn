@@ -56,6 +56,15 @@ wait_time = 1.5
 one_shot = true
 autostart = false
 
+[node name="life_add" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 30.0
+one_shot = false
+autostart = true
+
 [connection signal="timeout" from="game_over" to="." method="_on_game_over_timeout"]
+
+[connection signal="timeout" from="life_add" to="." method="_on_life_add_timeout"]
 
 

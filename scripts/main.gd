@@ -67,3 +67,8 @@ func life_remove():
 
 func _on_game_over_timeout():
 	get_tree().reload_current_scene()
+
+
+func _on_life_add_timeout():
+	lifes += 1
+	get_node("hud/lifes").set_text(str(lifes))
