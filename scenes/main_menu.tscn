@@ -1,11 +1,33 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=1]
-[ext_resource path="res://fonts/fira_sans_regular.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://gfx/juck_tutorial.png" type="Texture" id=2]
+[ext_resource path="res://fonts/fira_sans_regular.fnt" type="BitmapFont" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "button"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("play:rect/size")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 150, 70 ), Vector2( 190, 110 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("play:rect/pos")
+tracks/1/interp = 1
+tracks/1/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 600, 320 ), Vector2( 580, 300 ) ] }
 
 [node name="main_menu" type="Node2D"]
 
 script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 510, 290 )
+transform/scale = Vector2( 1.99219, 2.01389 )
+texture = ExtResource( 2 )
 
 [node name="play" type="Button" parent="."]
 
@@ -13,16 +35,27 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 434.0
-margin/top = 468.0
-margin/right = 582.0
-margin/bottom = 532.0
-custom_fonts/font = ExtResource( 2 )
+margin/left = 600.0
+margin/top = 320.0
+margin/right = 750.0
+margin/bottom = 390.0
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Play"
 flat = false
+
+[node name="animate_button" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/button = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "button"
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 
